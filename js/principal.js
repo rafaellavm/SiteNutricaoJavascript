@@ -11,9 +11,10 @@ console.log("carregando arquivo externo");
 	var peso = tdPeso.textContent;
 
 	var tdAltura = paciente.querySelector(".info-altura");
-
 	var altura = tdAltura.textContent;
 
+	tdIMC = paciente.querySelector(".info-imc");
 	var imc = peso / (altura * altura);
+	tdIMC.textContent = imc;
 
 	console.log(imc);
