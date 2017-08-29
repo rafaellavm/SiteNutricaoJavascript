@@ -9,6 +9,8 @@ titulo.textContent = "Rafaela Nutricionista";
 
 var pacientes = document.querySelectorAll(".paciente");
 
+console.log(pacientes);
+
 for (var i = 0; i < pacientes.length; i++) {
 	
 	//console.log(pacientes[i]);
@@ -26,15 +28,19 @@ for (var i = 0; i < pacientes.length; i++) {
 	var alturaEhvalida = true;
 
 	if (peso <= 0 || peso >= 1000) {
-		console.log("Peso inválido!");
 		pesoEhValido = false;
 		tdIMC.textContent = "Peso inválido!";
+		
+		//adicionando uma nova classe
+		paciente.classList.add("paciente-invalido");
+		//paciente.style.backgroundColor = "lightcoral";
 	}
 
 	if (altura <= 0 || altura >= 3.00) {
-		console.log("Altura inválida!");
 		alturaEhvalida = false;
 		tdIMC.textContent = "Altura inválida!";
+		//paciente.style.backgroundColor = "orange";
+		paciente.classList.add("paciente-invalido");
 	}
 
 
@@ -45,13 +51,4 @@ for (var i = 0; i < pacientes.length; i++) {
 	}
 }
 
-console.log(pacientes);
-
-
-
-
-
-
-
-
-console.log(imc);
+//console.log(imc);
