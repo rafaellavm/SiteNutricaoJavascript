@@ -51,4 +51,22 @@ for (var i = 0; i < pacientes.length; i++) {
 	}
 }
 
-//console.log(imc);
+var botaoAdicionar = document.querySelector("#adicionar-paciente");
+
+botaoAdicionar.addEventListener("click", function(){
+	console.log("oi,cliquei no botão!");
+});
+
+console.log(botaoAdicionar);
+
+/////////////////
+
+//'escutador' de eventos, passando uma função anônima
+//ou titulo.addEventListener("click", mostraMensagem);
+titulo.addEventListener("click", function(){
+	console.log("posso chamar uma função anônima");
+});
+
+function mostraMensagem(){
+	console.log("Olá, eu fui clicado!");
+}
