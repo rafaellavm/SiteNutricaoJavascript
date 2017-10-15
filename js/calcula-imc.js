@@ -9,7 +9,7 @@ titulo.textContent = "Rafaela Nutricionista";
 
 var pacientes = document.querySelectorAll(".paciente");
 
-console.log(pacientes);
+//console.log(pacientes);
 
 for (var i = 0; i < pacientes.length; i++) {
 	
@@ -46,65 +46,16 @@ for (var i = 0; i < pacientes.length; i++) {
 
 	if (alturaEhvalida && pesoEhValido) {
 
-		var imc = peso / (altura * altura);
-		tdIMC.textContent = imc.toFixed(2);
+		var imc = calculaImc(peso, altura);
+		tdIMC.textContent = imc;
 	}
 }
 
-var botaoAdicionar = document.querySelector("#adicionar-paciente");
+function calculaImc(peso,altura){
 
-botaoAdicionar.addEventListener("click", function(event){
-	
-	event.preventDefault();
-	
-	var form = document.querySelector("#form-adiciona");
+	var imc = 0;
 
-	//pega o valor do input altura demtro do form
-	var altura = form.altura.value;
-	var nome = form.nome.value;
-	var peso = form.peso.value;
-	var gordura = form.gordura.value;
+	imc = peso / (altura*altura);
 
-	//criar elemento 'tr' e 'td'
-	var pacienteTr = document.createElement("tr");
-	var pesoTd = document.createElement("td");
-	var alturaTd = document.createElement("td");
-	var gorduraTd = document.createElement("td");
-	var imcTd = document.createElement("td");
-	var nomeTd = document.createElement("td");
-
-	//colocar dentro do 'tr' criado o valor do elemento
-	nomeTd.textContent = nome;
-	pesoTd.textContent = peso;
-	alturaTd.textContent = altura;
-	gorduraTd.textContent = gordura;
-
-	//acrescentar os tds no 'tr'
-	pacienteTr.appendChild(nomeTd);
-	pacienteTr.appendChild(pesoTd);
-	pacienteTr.appendChild(alturaTd);
-	pacienteTr.appendChild(gorduraTd);
-
-	var tabela = document.querySelector("#tabela-pacientes");
-	
-	//colocar o td com os trs dentro tbody
-	tabela.appendChild(pacienteTr);
-
-	//console.log(pacienteTr);
-
-	//console.log(altura);console.log(nome);console.log(peso);console.log(gordura);
-});
-
-//console.log(botaoAdicionar);
-
-/////////////////
-
-//'escutador' de eventos, passando uma função anônima
-//ou titulo.addEventListener("click", mostraMensagem);
-titulo.addEventListener("click", function(){
-	//console.log("posso chamar uma função anônima");
-});
-
-function mostraMensagem(){
-	console.log("Olá, eu fui clicado!");
+	return imc.toFixed(2);
 }
