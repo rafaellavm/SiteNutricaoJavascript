@@ -79,9 +79,5 @@ function validaAltura(altura) {
 		return false;
 	}
 
-	if(validaAltura(paciente.altura)){
-        return ""
-    }else{
-        return""
-    }
+	
 }
