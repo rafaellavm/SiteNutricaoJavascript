@@ -36,7 +36,9 @@ for (var i = 0; i < pacientes.length; i++) {
 		//paciente.style.backgroundColor = "lightcoral";
 	}
 
-	if (!alturaEhvalida) {
+	//console.log("alturaValida = " + alturaEhValida);
+
+	if (!alturaEhValida) {
 		alturaEhvalida = false;
 		tdIMC.textContent = "Altura inválida!";
 		//paciente.style.backgroundColor = "orange";
@@ -76,4 +78,10 @@ function validaAltura(altura) {
 	} else {
 		return false;
 	}
+
+	if(validaAltura(paciente.altura)){
+        return ""
+    }else{
+        return""
+    }
 }
