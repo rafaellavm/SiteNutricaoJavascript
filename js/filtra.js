@@ -13,7 +13,9 @@ campoFiltro.addEventListener("input", function () {
             var tdNome = paciente.querySelector(".info-nome");
             var nome = tdNome.textContent;
 
-            if (nome != this.value) {
+            var expressao = new RegExp(this.value, "i");
+
+            if (!expressao.test(nome)) {
                 paciente.classList.add("invisivel");
             } else {
                 paciente.classList.remove("invisivel");
