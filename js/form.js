@@ -10,6 +10,12 @@ botaoAdicionar.addEventListener("click", function (event) {
 
 	var pacienteTr = montaTr(paciente);
 
+	if (!validaPaciente(paciente)) {
+		console.log("Paciente inválido");
+		
+		return;
+    }
+
 	var tabela = document.querySelector("#tabela-pacientes");
 
 	//colocar o td com os trs dentro tbody
@@ -68,13 +74,21 @@ function montaTr(paciente) {
 	return pacienteTr;
 }
 
-function montaTd(dado,classe){
+function montaTd(dado, classe) {
 
 	var td = document.createElement("td");
 	td.textContent = dado;
 	td.classList.add(classe);
 
 	return td;
+}
+
+function validaPaciente(paciente) {
+	if (validaPeso(paciente.peso)) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 //console.log(botaoAdicionar);
