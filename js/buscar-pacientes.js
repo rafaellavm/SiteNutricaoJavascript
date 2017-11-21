@@ -1,6 +1,6 @@
 var botaoAdicionar = document.querySelector("#buscar-pacientes");
 
-botaoAdicionar.addEventListener("click", function(){
+botaoAdicionar.addEventListener("click", function () {
     console.log("Buscando pacientes");
 
     //responsável por fazer requisições http
@@ -9,14 +9,26 @@ botaoAdicionar.addEventListener("click", function(){
     xhr.open("GET", "https://api-pacientes.herokuapp.com/pacientes");
 
     //'escutador' de eventos
-    xhr.addEventListener("load", function() {
-        var resposta = xhr.responseText;
+    xhr.addEventListener("load", function () {
 
-        var pacientes = JSON.parse(resposta);
+        var erroAjax = document.querySelector("#erro-ajax");
 
-        pacientes.forEach(function(paciente) {
-            adicionaPacienteNaTabela(paciente);
-        });
+        if (xhr.status == 200) {
+
+            erroAjax.classList.add("invisivel");
+            var resposta = xhr.responseText;
+            var pacientes = JSON.parse(resposta);
+
+            pacientes.forEach(function (paciente) {
+                adicionaPacienteNaTabela(paciente);
+            });
+
+        } else {
+
+            erroAjax.classList.remove("invisivel");
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+        }
     });
 
     xhr.send();
